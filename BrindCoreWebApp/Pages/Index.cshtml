@@ -1,0 +1,39 @@
+﻿@page
+@model BrindCoreWebApp.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var LastName = "Brennan";
+    var FirstName = "Maureen";
+    var MoBirthYear = 1970;
+    var PaulBirthYear = 1966;
+    var _Sum = MoBirthYear + PaulBirthYear;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Did you know it is @DateTime.Now.ToString("dddd, dd MMMM yyyy") at @DateTime.Now.ToString("hh:mm tt"). Did you manage to get all your work and errands done? </p>
+    <p> Her name is @FirstName @LastName </p>
+    <p>If I added Paul's and Maureen's birth years together, I get @_Sum</p>
+    <p><a href="~/team">Teams</a>.</p>
+</div>
+<p></p>
+<div class="text-center">
+    <h1 class="display-4">Teams</h1>
+    <table class="table">
+        <thead/>
+         <tbody>
+            @foreach (var item in Model.Team)
+            {
+                <tr>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fullname)
+                    </td>
+                   
+                             </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
